@@ -1,6 +1,6 @@
 FROM phusion/baseimage
 
-ARG OTP_VSN=20.3
+ARG OTP_VSN=22.1.8-1
 
 # required packages
 RUN apt-get update && apt-get install -y \
@@ -20,8 +20,8 @@ RUN apt-get update && apt-get install -y \
     libpam0g-dev \
     unixodbc-dev \
     wget && \
-    wget http://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && \
-    dpkg -i erlang-solutions_1.0_all.deb && \
+    wget https://packages.erlang-solutions.com/erlang-solutions_2.0_all.deb && \
+    dpkg -i erlang-solutions_2.0_all.deb && \
     apt-get update && \
     apt-get install -y esl-erlang=1:$OTP_VSN && \
     apt-get clean

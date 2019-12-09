@@ -1,3 +1,14 @@
+# Quick start
+
+```
+docker build -f Dockerfile.builder -t mongooseim-builder .
+```
+
+```
+docker exec -i mongooseim-builder /build.sh MongooseIM https://github.com/sordak/MongooseIM master
+```
+
+
 # mongooseim-docker
 
 MongooseIM is Erlang Solutions' robust and efficient XMPP server aimed at large installations.
