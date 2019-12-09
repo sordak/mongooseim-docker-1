@@ -1,6 +1,6 @@
 # Quick start
 ```
-mkdir git_root && cd git_root
+mkdir git_sordak && cd git_sordak
 ```
 
 ```
