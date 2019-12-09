@@ -23,21 +23,21 @@ export VOLUMES=`pwd` && docker run -d --name mongooseim-builder -h mongooseim-bu
 docker exec -i mongooseim-builder /build.sh MongooseIM https://github.com/sordak/MongooseIM master
 ```
 
-Optional:
-```
-mkdir ../mongooseim-docker/builds/ && cp -v builds/mongooseim*tar.gz ../mongooseim-docker/builds/mongooseim-example-001.tar.gz
-```
-
 ```
 cp -v builds/mongooseim*tar.gz ../mongooseim-docker/member/mongooseim.tar.gz
 ```
 
+Here you should put your project name instead of 'example':
 ```
-mkdir -p ../mongooseim-docker/projects/example/builds
+export PROJECT_NAME=example
 ```
 
 ```
-cp -v builds/mongooseim*tar.gz ../mongooseim-docker/projects/example/builds/mongooseim.tar.gz
+mkdir -p ../mongooseim-docker/projects/${PROJECT_NAME}/builds
+```
+
+```
+cp -v builds/mongooseim*tar.gz ../mongooseim-docker/projects/${PROJECT_NAME}/builds/mongooseim.tar.gz
 ```
 
 ```
@@ -45,11 +45,16 @@ cd ../mongooseim-docker/
 ```
 
 ```
-PROJECT=example COMMIT=master ./quickstart build
+PROJECT=${PROJECT_NAME} COMMIT=master ./quickstart build
+```
+
+Here you should put count of nodes:
+```
+export NODE_COUNT=3
 ```
 
 ```
-PROJECT=example NODES=3 ./quickstart start
+PROJECT=${PROJECT_NAME} NODES=${NODE_COUNT} ./quickstart start
 ```
 
 # mongooseim-docker
