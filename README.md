@@ -1,4 +1,11 @@
 # Quick start
+```
+mkdir git_root && cd git_root
+```
+
+```
+git clone https://github.com/sordak/mongooseim-docker-1.git && cd mongooseim-docker-1
+```
 
 ```
 docker build -f Dockerfile.builder -t mongooseim-builder .
