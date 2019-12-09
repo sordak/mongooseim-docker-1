@@ -32,6 +32,10 @@ cp -v builds/mongooseim*tar.gz ../mongooseim-docker/member/mongooseim.tar.gz
 ```
 
 ```
+mkdir -p ../mongooseim-docker/projects/example/builds
+```
+
+```
 cp -v builds/mongooseim*tar.gz ../mongooseim-docker/projects/example/builds/mongooseim.tar.gz
 ```
 
