@@ -5,6 +5,10 @@ docker build -f Dockerfile.builder -t mongooseim-builder .
 ```
 
 ```
+export VOLUMES=`pwd` && docker run -d --name mongooseim-builder -h mongooseim-builder -v ${VOLUMES}/builds:/builds mongooseim-builder
+```
+
+```
 docker exec -i mongooseim-builder /build.sh MongooseIM https://github.com/sordak/MongooseIM master
 ```
 
