@@ -23,10 +23,12 @@ export VOLUMES=`pwd` && docker run -d --name mongooseim-builder -h mongooseim-bu
 docker exec -i mongooseim-builder /build.sh MongooseIM https://github.com/sordak/MongooseIM master
 ```
 
+Optional:
 ```
 mkdir ../mongooseim-docker/builds/ && cp -v builds/mongooseim*tar.gz ../mongooseim-docker/builds/mongooseim-example-001.tar.gz
 ```
 
+Optional:
 ```
 cp -v builds/mongooseim*tar.gz ../mongooseim-docker/member/mongooseim.tar.gz
 ```
@@ -37,6 +39,18 @@ mkdir -p ../mongooseim-docker/projects/example/builds
 
 ```
 cp -v builds/mongooseim*tar.gz ../mongooseim-docker/projects/example/builds/mongooseim.tar.gz
+```
+
+```
+cd ../mongooseim-docker/
+```
+
+```
+PROJECT=example COMMIT=master ./quickstart build
+```
+
+```
+PROJECT=example NODES=3 ./quickstart start
 ```
 
 # mongooseim-docker
