@@ -4,7 +4,11 @@ mkdir git_root && cd git_root
 ```
 
 ```
-git clone https://github.com/sordak/mongooseim-docker-1.git && cd mongooseim-docker-1
+git clone https://github.com/sordak/mongooseim-docker-1.git && git clone https://github.com/sordak/mongooseim-docker
+```
+
+```
+cd mongooseim-docker-1
 ```
 
 ```
@@ -19,6 +23,17 @@ export VOLUMES=`pwd` && docker run -d --name mongooseim-builder -h mongooseim-bu
 docker exec -i mongooseim-builder /build.sh MongooseIM https://github.com/sordak/MongooseIM master
 ```
 
+```
+mkdir ../mongooseim-docker/builds/ && cp -v builds/mongooseim*tar.gz ../mongooseim-docker/builds/mongooseim-example-001.tar.gz
+```
+
+```
+cp -v builds/mongooseim*tar.gz ../mongooseim-docker/member/mongooseim.tar.gz
+```
+
+```
+cp -v builds/mongooseim*tar.gz ../mongooseim-docker/projects/example/builds/mongooseim.tar.gz
+```
 
 # mongooseim-docker
 
