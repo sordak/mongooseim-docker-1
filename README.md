@@ -28,7 +28,6 @@ Optional:
 mkdir ../mongooseim-docker/builds/ && cp -v builds/mongooseim*tar.gz ../mongooseim-docker/builds/mongooseim-example-001.tar.gz
 ```
 
-Optional:
 ```
 cp -v builds/mongooseim*tar.gz ../mongooseim-docker/member/mongooseim.tar.gz
 ```
