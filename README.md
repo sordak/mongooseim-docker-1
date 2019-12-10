@@ -37,7 +37,7 @@ mkdir -p ../mongooseim-docker/projects/${PROJECT_NAME}/builds
 ```
 
 ```
-cp -v builds/mongooseim*tar.gz ../mongooseim-docker/projects/${PROJECT_NAME}/builds/mongooseim-${PROJECT_NAME}.tar.gz
+cp -v builds/mongooseim*tar.gz ../mongooseim-docker/projects/${PROJECT_NAME}/builds/mongooseim.tar.gz
 ```
 
 ```
