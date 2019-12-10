@@ -37,7 +37,7 @@ mkdir -p ../mongooseim-docker/projects/${PROJECT_NAME}/builds
 ```
 
 ```
-cp -v builds/mongooseim*tar.gz ../mongooseim-docker/projects/${PROJECT_NAME}/builds/mongooseim.tar.gz
+cp -v builds/mongooseim*tar.gz ../mongooseim-docker/projects/${PROJECT_NAME}/builds/mongooseim-${PROJECT_NAME}.tar.gz
 ```
 
 ```
@@ -51,6 +51,14 @@ PROJECT=${PROJECT_NAME} COMMIT=master ./quickstart build
 Here you should put count of nodes:
 ```
 export NODE_COUNT=3
+```
+
+We need jq to execute last command:
+```
+## for CentOS/RHEL
+rpm -qa | grep -qw jq || yum -y install jq
+## for Debian/Ubuntu
+dpkg -l | grep -qw jq || apt-get install jq
 ```
 
 ```
