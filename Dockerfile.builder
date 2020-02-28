@@ -24,6 +24,7 @@ RUN apt-get update && apt-get install -y \
     dpkg -i erlang-solutions_2.0_all.deb && \
     apt-get update && \
     apt-get install -y esl-erlang=1:$OTP_VSN && \
+    apt-get install elixir && \
     apt-get clean
 
 COPY ./builder/build.sh /build.sh
