@@ -24,6 +24,7 @@ build () {
         cd $workdir && \
         git checkout $commit && \
         tools/configure with-all && \
+        mix deps.update --all && \
         make rel && \
         echo "${name}-${commit}-${repo}" > ${version_file} && \
         git describe --always >> ${version_file}
