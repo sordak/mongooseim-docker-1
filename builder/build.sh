@@ -24,8 +24,9 @@ build () {
         cd $workdir && \
         git checkout $commit && \
         tools/configure with-all && \
-        mix deps.update --all && \
         make rel && \
+        chmod +x rebar3 && \
+        ./rebar3 compile && \
         echo "${name}-${commit}-${repo}" > ${version_file} && \
         git describe --always >> ${version_file}
     local build_success=$?
