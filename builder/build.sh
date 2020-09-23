@@ -36,6 +36,10 @@ build () {
         cd _build/prod/rel && \
             tar cfzh ${BUILDS}/${tarball} mongooseim && \
             log "${BUILDS}/$tarball is ready" && \
+            rm -f mongooseim/etc/*
+            tar cfzh mongooseim.tar.gz mongooseim && \
+            mv -v mongooseim.tar.gz /member/ && \
+            log "DONE" && \
             exit 0
     else
         log "build failed"
