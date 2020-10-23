@@ -36,10 +36,15 @@ build () {
         cd _build/prod/rel && \
             tar cfzh ${BUILDS}/${tarball} mongooseim && \
             log "${BUILDS}/$tarball is ready" && \
-            rm -f mongooseim/etc/*
             tar cfzh mongooseim.tar.gz mongooseim && \
             mv -v mongooseim.tar.gz /member/ && \
-            log "DONE" && \
+            log "tarball moved to /member" && \
+            cd /git && \
+            for i in `( set -o posix ; set ) | grep _REPO | awk -F'=' '{print $2}'` ; do git clone https://${GIT_CREDS}@${i} ; done
+            cd /
+            for i in `printenv | grep _CONFIG_TPL=g` ; do template_file=`echo $i | awk -F'=' '{print $2}'`; config_file=`echo $template_file | awk -F'.tpl' '{print $1}'` ; cp -v $template_file $config_file ; container=`echo $i | awk -F'_CONFIG_TPL' '{print $1}'`; for j in `printenv | grep "^$container" | awk -F'=' '{print $1'}`; do sed -i "s~$j~${!j}~g" $config_file ; done ; done
+            for i in `printenv | grep _CONFIG_FILE=g` ; do config_file=`echo $i | awk -F'=' '{print $2}'` ; template_file=$config_file.tpl ; cp -v $config_file $template_file ; container=`echo $i | awk -F'_CONFIG_FILE' '{print $1}'`; for j in `printenv | grep "^$container" | awk -F'=' '{print $1'}`; do sed -i "s~$j~${!j}~g" $config_file ; done ; done
+            log "DONE"
             exit 0
     else
         log "build failed"

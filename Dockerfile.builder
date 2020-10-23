@@ -1,4 +1,4 @@
-FROM phusion/baseimage:master
+FROM phusion/baseimage:18.04-1.0.0
 
 ARG OTP_VSN=22.3-1
 
